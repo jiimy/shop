@@ -5,24 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter, BrowserRouter } from "react-router-dom";
 
-// const express = require('express');
-// const app = express();
-
-// app.listen();
-
-// const mongoose = require("mongoose");
-// mongoose
-//   .connect(
-//     "mongodb+srv://rudwnok:ok9953@first.2owuq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-//   )
-//   .then(() => console.log("MongoDB Connected"))
-//   .catch((err) => console.log(err));
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <HashRouter basename={'/'}>
     <App />
-  </BrowserRouter>
+  </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

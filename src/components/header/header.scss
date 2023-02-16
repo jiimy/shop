@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  .nav, .menu {
+    display: flex;
+  }
+  .nav {
+    align-items: center;
+    justify-content: space-between;
+    input {
+      width: 480px;
+      height: 40px;
+      border-radius: 16px;
+    }
+  }
+  .menu {
+    gap: 20px;
+    font-size: 20px;
+    li {
+      cursor: pointer;
+    }
+  }
+}

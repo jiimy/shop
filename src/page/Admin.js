@@ -16,13 +16,7 @@ const AdminPage = () => {
         name: data["name"],
         brand: data["brand"],
       })
-      // axios.post(`${PRODUCT}`, {
-      //   name: "someday",
-      //   brand: "Alan Turing",
-      // })
       .then(function (response) {
-        // response
-        console.log("dta", data);
         console.log("dta", response.data);
       })
       .catch(function (error) {

@@ -1,20 +1,45 @@
-import React from 'react';
+import React from "react";
 import { Route, Link, Routes, Router } from "react-router-dom";
+import "./header.scss";
 
 const Header = () => {
   return (
-    <div>
-      <p>
-        <Link to="/">홈</Link>
-      </p>
-      <p>
-        <Link to="/login">로그인</Link>
-      </p>
-      <p>
-        <Link to="/admin">어드민</Link>
-      </p>
+    <div className="header">
+      <div className="nav">
+        <Link to="/">메인</Link>
+        <div className="inputwrap search">
+          <input type="text" name="" id="" placeholder="검색창"/>
+        </div>
+        <div className="etc">
+          <div className="noti">알람</div>
+          <div className="mypage">
+            <Link to="/login">마이페이지</Link>
+          </div>
+          <div className="basket">장바구니</div>
+        </div>
+      </div>
+      <ul className="menu">
+        <li>
+          <strong>카테고리</strong>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/ranking">랭킹</Link>
+        </li>
+        <li>
+          <Link to="/brand">브랜드</Link>
+        </li>
+        <li>
+          <Link to="/event">이벤트</Link>
+        </li>
+        <li>
+          <Link to="/magazin">매거진</Link>
+        </li>
+      </ul>
     </div>
   );
-}
+};
 
-export default Header
+export default Header;

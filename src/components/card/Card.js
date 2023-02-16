@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import "./card.scss";
 
 const Card = ({ data }) => {
   const [sendData, setSendData] = useState(data);
@@ -9,17 +9,15 @@ const Card = ({ data }) => {
   }, [sendData.length]);
 
   return (
-    <div>
-      {Object.keys(data).map(id => {
+    <div className="product-list">
+      {Object.keys(data).map((id) => {
         const product = data[id];
         return (
-          <div>{product.name}</div>
-        )
-      })
-      }
-      {/*
-    
-       */}
+          <>
+            <div className="item">{product.name}</div>
+          </>
+        );
+      })}
     </div>
   );
 };
