@@ -1,0 +1,1 @@
+export const PRODUCT = "https://shop-6260a-default-rtdb.firebaseio.com/product.json";

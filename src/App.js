@@ -7,47 +7,43 @@ import "./App.css";
 import Login from "./page/Login";
 import Home from "./page/Home";
 import Card from "./components/card/Card";
+import Header from "./components/header/Header";
+
+import axios from "axios";
+import AdminPage from "./page/Admin";
+
+import { PRODUCT } from "./api/constants";
 
 function App() {
-  const [todo, setTodo] = useState("");
+  const [list, setList] = useState({});
 
-  const handleTodoChange = (e) => {
-    setTodo(e.target.value);
-  };
+  useEffect(() => {
+    // const list = axios(PRODUCT);
+    // list.then(function (response) {
+    //   setList(response.data);
+    // });
 
-  const writeToDatabase = () => {
-    const uuid = uid();
-    set(ref(db, `/${uuid}`), {
-      todo,
-      uuid,
-    });
-    setTodo("");
-  };
+    fetch(PRODUCT).then(res => {
+      if(res.status !== 200) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    }).then(product => setList(product))
+  }, []);
 
   return (
     <div className="App">
-      <div>
-        <p>
-          <Link to="/">홈</Link>
-        </p>
-        <p>
-          <Link to="/r1">Router1</Link>
-        </p>
-        <p>
-          <Link to="/r2">Router2</Link>
-        </p>
-      </div>
+      <Header />
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/r1" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </div>
-
-
-      <Card/>
-      <input type="text" name="" id="" value={todo} onChange={handleTodoChange}/>
-      <button onClick={writeToDatabase}>submit</button>
+      <Card data={list} />
+      {/*
+     */}
     </div>
   );
 }

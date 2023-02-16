@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-const databaseURL = "https://shop-6260a-default-rtdb.firebaseio.com/";
-
-const Card = () => {
-  const [item, setItem] = useState("");
+const Card = ({ data }) => {
+  const [sendData, setSendData] = useState(data);
 
   useEffect(() => {
-    fetch(`${databaseURL}/product.json`)
-      .then((res) => {
-        if (res.status != 200) {
-          throw new Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then((res) => {
-        console.log("re", res[0]);
-        setItem(res[0].brand);
-      });
-  });
+    setSendData(data);
+  }, [sendData.length]);
 
-  return <div>dfdsf <br/> {item}</div>;
+  return (
+    <div>
+      {Object.keys(data).map(id => {
+        const product = data[id];
+        return (
+          <div>{product.name}</div>
+        )
+      })
+      }
+      {/*
+    
+       */}
+    </div>
+  );
 };
 
 export default Card;

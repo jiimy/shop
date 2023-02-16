@@ -3,7 +3,7 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-      홈
+      메인페이지
     </div>
   )
 }
