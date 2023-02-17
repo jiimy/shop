@@ -1,10 +1,10 @@
 import React from "react";
-import { Route, Link, Routes, Router } from "react-router-dom";
-import "./header.scss";
 
 const Header = () => {
   return (
     <div className="header">
+      {/*
+  
       <div className="nav">
         <Link to="/">메인</Link>
         <div className="inputwrap search">
@@ -38,6 +38,7 @@ const Header = () => {
           <Link to="/magazin">매거진</Link>
         </li>
       </ul>
+       */}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Card from "./components/card/Card";
 import Header from "./components/header/Header";
-import Home from "./page/Home";
+import Home from "./pages/Home";
 import './assets/index.scss';
 
 import { PRODUCT } from "./api/constants";
