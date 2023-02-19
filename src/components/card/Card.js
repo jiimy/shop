@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./card.scss";
 
-const Card = ({ data }) => {
-  const [sendData, setSendData] = useState(data);
+const Card = props => {
+  // const [sendData, setSendData] = useState(data);
+  const { data, test } = props;
 
   useEffect(() => {
-    setSendData(data);
-  }, [sendData.length]);
+    //   setSendData(data);
+    // }, [sendData.length]);
+    console.log("dd", props.test);
+  }, []);
 
   return (
     <div className="product-list">
-      {Object.keys(data).map((id) => {
-        const product = data[id];
-        return (
-          <>
-            <div className="item">{product.name}</div>
-          </>
-        );
-      })}
+    <div>{test}</div>
+      {/*
+    {Object.keys(data).map((id) => {
+      const product = data[id];
+      return (
+        <>
+          <div className="item">{product.name}</div>
+        </>
+      );
+    })}
+   */}
     </div>
   );
 };

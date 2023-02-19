@@ -16,15 +16,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.1",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
     "uid": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "next build && gh-pages -d build",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "deploy": "react-scripts build && gh-pages -d build",
+    "dev": "react-scripts dev",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

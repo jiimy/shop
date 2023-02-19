@@ -1,14 +1,14 @@
 import React from "react";
+import { Link, Routes } from "react-router-dom";
+import './header.scss';
 
 const Header = () => {
   return (
     <div className="header">
-      {/*
-  
       <div className="nav">
         <Link to="/">메인</Link>
         <div className="inputwrap search">
-          <input type="text" name="" id="" placeholder="검색창"/>
+          <input type="text" name="" id="" placeholder="검색창" />
         </div>
         <div className="etc">
           <div className="noti">알람</div>
@@ -38,7 +38,6 @@ const Header = () => {
           <Link to="/magazin">매거진</Link>
         </li>
       </ul>
-       */}
     </div>
   );
 };

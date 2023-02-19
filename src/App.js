@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      <Card data={list} />
+      <Card data={list} test={11}/>
     </div>
   );
 }
