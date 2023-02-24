@@ -15,7 +15,11 @@ const Header = () => {
           <div className="mypage">
             <Link to="/login">마이페이지</Link>
           </div>
+
           <div className="basket">장바구니</div>
+          <div className="admin">
+            <Link to="/admin">어드민</Link>
+          </div>
         </div>
       </div>
       <ul className="menu">

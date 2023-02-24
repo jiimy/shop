@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PRODUCT } from "../api/constants";
+import FileUpload from "../components/fileUpload/FileUpload";
+import FileUpload2 from "../components/fileUpload/FileUpload2";
 
 const AdminPage = () => {
   const [name, setName] = useState("");
@@ -50,27 +52,42 @@ const AdminPage = () => {
               !isDirty ? undefined : errors.brand ? "true" : "false"
             }
             {...register("brand", {
-              required: "이메일은 필수 입력입니다.",
+              required: "브랜드명 필수 입력입니다.",
             })}
           />
-          <label htmlFor="name">이름</label>
+          <label htmlFor="price">가격</label>
           <input
-            id="name"
-            type="text"
-            placeholder="name"
+            id="price"
+            type="number"
+            placeholder="price"
             aria-invalid={!isDirty ? undefined : errors.name ? "true" : "false"}
-            {...register("name", {
-              required: "비밀번호는 필수 입력입니다.",
-              // minLength: {
-              //   value: 8,
-              //   message: "8자리 이상 비밀번호를 사용하세요.",
-              // },
+            {...register("price", {
+              required: "가격 필수입력",
             })}
           />
+          <label htmlFor="size">사이즈</label>
+          <input
+            id="size"
+            type="string"
+            placeholder="size"
+            aria-invalid={!isDirty ? undefined : errors.name ? "true" : "false"}
+            {...register("size", {
+              required: "사이즈 필수입력",
+            })}
+          />
+          <FileUpload />
+          <label htmlFor="type">타입</label>
           <button type="submit" disabled={isSubmitting}>
-            로그인11
+            저장
           </button>
         </form>
+        {/*
+          
+       */}
+
+        {/*
+       <FileUpload2 />
+       */}
       </div>
     </div>
   );
