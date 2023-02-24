@@ -24,6 +24,7 @@
 자전거를 주제로 하고있으며
 
 상품 목업 데이터는 아래와 같습니다.
+```
 브랜드명 brand: string
 가격 price: number 필수값
 사이즈 size: string 필수값
@@ -36,5 +37,5 @@
   부품 part: 모델명 string
   용품/기타 supplies : 모델명 string
   의류/패션아이템 clothes: 모델명 string
-  
+```
   
