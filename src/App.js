@@ -7,10 +7,10 @@ import './assets/index.scss';
 
 import { PRODUCT } from "./api/constants";
 import AdminPage from "./pages/Admin";
-import Login from "./pages/Login";
+import Login from "./pages/login/Login";
 import Regist from "./pages/Regist";
 
-function App() {
+const App = ({ auth }) => {
   const [list, setList] = useState({});
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login auth={auth}/>} />
         <Route path="/regist" element={<Regist />} />
       </Routes>
       {/*
