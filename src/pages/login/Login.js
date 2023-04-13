@@ -46,6 +46,7 @@ const Login = () => {
       <div>
         {/* 로그인 */}
         <h3>Login</h3>
+        비밀번호 최소 6자
         <input
           type="text"
           placeholder="Email"
@@ -64,9 +65,10 @@ const Login = () => {
         {/*
          */}
         <button onClick={login}>Login</button>
+        {/*
         <div>User Logged In:</div>
         <div>{user?.email}</div>
-        <button onClick={logout}>로그아웃</button>
+       */}
       </div>
       <div>
         <span>계정 찾기</span>

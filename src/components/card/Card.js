@@ -12,15 +12,12 @@ const Card = ({ data }) => {
 
   useEffect(() => {
     const sstorage = getStorage();
-    const url = '3';
-    getDownloadURL(ref(sstorage, `images/${url}.jpg`))
-      .then((url) => {
-        console.log("vbb", url);
-        setRending(url);
-      })
-      .catch((error) => {
-        // Handle any errors
-      });
+    // const url = "3";
+    // getDownloadURL(ref(sstorage, `images/${url}.jpg`))
+    //   .then((url) => {
+    //     console.log("vbb", url);
+    //     setRending(url);
+    //   })
 
     const fetchImages = async () => {
       let result = await storage.ref().child("images/").listAll();
@@ -37,38 +34,43 @@ const Card = ({ data }) => {
     };
     loadImages();
 
-    var gsReference = storage.refFromURL(
-      "gs://shop-6260a.appspot.com/images/2.jpg"
-    );
-    console.log("aaa", gsReference);
+    // var gsReference = storage.refFromURL(
+    //   "gs://shop-6260a.appspot.com/images/2.jpg"
+    // );
+    // console.log("aaa", gsReference);
   }, []);
 
-  console.log("aa", files);
+  console.log("aa", data);
 
   return (
     <div className="product-list">
-      {Object.keys(data).map((id, key) => {
-        const product = data[id];
-        const productType = data[id].type;
-        return (
-          <div className="item" key={id}>
-            브랜드명: {product.brand}
-            <br />
-            사이즈: {product.string}
-            <br />
-            가격 : {product.price}
-            <br />
-            모델명: {Object.values(productType)}
-            이미지:
-            {/*
-            <img src={rendingImg} alt="" />
-            <img src={files[key]} alt="" />
-          */}
+      {data &&
+        Object.keys(data).map((id, key) => {
+          const product = data[id];
+          // const productType = data[id].type;
+          return (
+            <div className="item" key={id}>
+              <div className="imgwrap">
+                <img src={product.img} alt="" />
+              </div>
+              <div className="textwrap">
+                브랜드명: {product.brand}
+                <br />
+                가격 : {product.price}
+                <br />
+                모델명: {product.modelName}
+                <br/>
+                타입: {product.select}
+              </div>
+              {/*
+              <img src={files && files[key]} alt="" />
+              <img src={rendingImg} alt="" />
             이미지2:
-            <GetImage imgurl={'3'}/>
-          </div>
-        );
-      })}
+            <GetImage imgurl={"3"} />
+          */}
+            </div>
+          );
+        })}
     </div>
   );
 };

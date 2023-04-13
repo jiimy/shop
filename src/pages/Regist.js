@@ -57,6 +57,7 @@ const Regist = () => {
 
   return (
     <div style={{ textAlign: "center", margin: 10 }}>
+      
       <div>
         {/* 회원가입 */}
         <input

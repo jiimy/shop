@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import { PRODUCT } from "../../api/constants";
 import Card from "../../components/card/Card";
 
+import { useGetPokemonByNameQuery } from "../../services/pokemon";
+
 const Home = () => {
   const [list, setList] = useState({});
+    const { data, error, isLoading } = useGetPokemonByNameQuery('');
+
+    console.log("dd", data);
 
   useEffect(() => {
     axios
@@ -22,7 +27,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="page">
       <div>메인페이지</div>
       <Card data={list} />
     </div>

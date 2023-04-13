@@ -13,7 +13,7 @@ const Header = () => {
         <div className="etc">
           <div className="noti">알람</div>
           <div className="mypage">
-            <Link to="/login">마이페이지</Link>
+            <Link to="/mypage">마이페이지</Link>
           </div>
 
           <div className="basket">장바구니</div>
@@ -24,7 +24,7 @@ const Header = () => {
       </div>
       <ul className="menu">
         <li>
-          <strong>카테고리</strong>
+          <Link to="/category">카테고리</Link>
           <ul>
             <li></li>
           </ul>

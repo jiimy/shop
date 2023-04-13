@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { storage } from "../../firebase";
 
-const FileUpload = () => {
+const FileUpload = forwardRef(( props, ref) => {
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [error, setError] = useState("");
   const [progress, setProgress] = useState(100);
+  const [sucess, setSucess] = useState();
 
   const handleImage = (event) => {
     const image = event.target.files[0];
@@ -19,7 +20,6 @@ const FileUpload = () => {
     event.preventDefault();
     setError("");
     if (image === "") {
-      console.log("파일이 선택되지 않았습니다");
       setError("파일이 선택되지 않았습니다");
       return;
     }
@@ -39,6 +39,7 @@ const FileUpload = () => {
         const percent = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log(percent + "% done");
         setProgress(percent);
+        setSucess(true);
       },
       (error) => {
         console.log("err", error);
@@ -46,23 +47,28 @@ const FileUpload = () => {
         setProgress(100); //진행중인 바를 삭제
       },
       () => {
-        imagesRef.put(image).snapshot.ref.getDownloadURL().then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          setImageUrl(downloadURL);
-          setImageUrl('');
-        });
+        imagesRef
+          .put(image)
+          .snapshot.ref.getDownloadURL()
+          .then((downloadURL) => {
+            console.log("File available at", downloadURL);
+            props.getImgUrl(downloadURL);
+            setImageUrl(downloadURL);
+            // setImageUrl("");
+          });
       }
     );
   };
 
   return (
     <div>
-      {error && <div variant="danger">{error}</div>}
       <form onSubmit={onSubmit}>
-        <input type="file" onChange={handleImage} />
+        <input type="file" onChange={handleImage} ref={ref} />
         <button onClick={onSubmit}>업로드</button>
       </form>
+      {error && <div variant="danger">{error}</div>}
       {/*
+      {progress === 100 && <p>등록되었습니다.</p>}
       {progress !== 100 && <LinearProgressWithLabel value={progress} />}
      */}
       {imageUrl && (
@@ -72,6 +78,6 @@ const FileUpload = () => {
       )}
     </div>
   );
-};
+});
 
 export default FileUpload;
