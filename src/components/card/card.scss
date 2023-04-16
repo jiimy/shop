@@ -1,12 +1,36 @@
+.card {
+  .count {
+    display: block;
+    margin: 20px 0 10px 0;
+  }
+}
+
 .product-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
   .item {
     display: flex;
-    align-items: center;
-    border: 1px solid black;
+    // border: 1px solid black;
+    flex-direction: column;
+    cursor: pointer;
   }
   .imgwrap {
-    max-width: 300px;
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    img {
+      position: absolute;
+      width: 100%;
+      top: -1000%;
+      right: -1000%;
+      bottom: -1000%;
+      left: -1000%;
+      margin: auto;
+    }
+  }
+  .textwrap {
+    margin-top: 20px;
   }
 }

@@ -1,0 +1,16 @@
+.category-page {
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+  .nav-item {
+    cursor: pointer;
+    padding-bottom: 10px;
+    &.is-select {
+      border-bottom: 2px solid black;
+    }
+  }
+  .content {
+    margin-top: 20px;
+  }
+}

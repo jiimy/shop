@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="nav">
-        <Link to="/">메인</Link>
+        <Link to="/shop">메인</Link>
         <div className="inputwrap search">
           <input type="text" name="" id="" placeholder="검색창" />
         </div>

@@ -1,35 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { PRODUCT } from "../../api/constants";
+import React from "react";
 import Card from "../../components/card/Card";
 
-import { useGetPokemonByNameQuery } from "../../services/pokemon";
+import { useGetProductQuery } from "../../services/product";
 
 const Home = () => {
-  const [list, setList] = useState({});
-    const { data, error, isLoading } = useGetPokemonByNameQuery('');
-
-    console.log("dd", data);
-
-  useEffect(() => {
-    axios
-      .get(PRODUCT)
-      .then(function (response) {
-        console.log(response);
-        setList(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(function () {
-        // 항상 실행되는 영역
-      });
-  }, []);
+  const { data, error, isLoading } = useGetProductQuery("");
 
   return (
     <div className="page">
-      <div>메인페이지</div>
-      <Card data={list} />
+      <Card data={data} />
     </div>
   );
 };

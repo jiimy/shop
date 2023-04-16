@@ -3,6 +3,7 @@ import { storage } from "../../firebase";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import "./card.scss";
 import GetImage from "./getImage/GetImage";
+import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
   // const [sendData, setSendData] = useState(data);
@@ -40,37 +41,40 @@ const Card = ({ data }) => {
     // console.log("aaa", gsReference);
   }, []);
 
-  console.log("aa", data);
-
   return (
-    <div className="product-list">
-      {data &&
-        Object.keys(data).map((id, key) => {
-          const product = data[id];
-          // const productType = data[id].type;
-          return (
-            <div className="item" key={id}>
-              <div className="imgwrap">
-                <img src={product.img} alt="" />
-              </div>
-              <div className="textwrap">
-                브랜드명: {product.brand}
-                <br />
-                가격 : {product.price}
-                <br />
-                모델명: {product.modelName}
-                <br/>
+    <div className="card">
+      <span className="count">총 {data && Object.keys(data).length}개</span>
+      <div className="product-list">
+        {data &&
+          Object.keys(data).map((id, key) => {
+            const product = data[id];
+            // const productType = data[id].type;
+            return (
+              <div className="item" key={id}>
+                <Link to={`/product/${product.id}`}>
+                  <div className="imgwrap">
+                    <img src={product.img} alt="" />
+                  </div>
+                  <div className="textwrap">
+                    브랜드명: {product.brand}
+                    <br />
+                    가격 : {product.price}
+                    <br />
+                    모델명: {product.modelName}
+                    <br />
+                  </div>
+                  {/*
                 타입: {product.select}
-              </div>
-              {/*
               <img src={files && files[key]} alt="" />
               <img src={rendingImg} alt="" />
             이미지2:
             <GetImage imgurl={"3"} />
           */}
-            </div>
-          );
-        })}
+                </Link>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

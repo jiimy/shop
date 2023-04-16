@@ -114,12 +114,12 @@ const AdminPage = () => {
               //   setValue("select", e.target.value, { shouldValidate: true })
               // }
             >
-              <option value="frame">완차/프레임</option>
-              <option value="wheelSet">휠셋</option>
-              <option value="drivingSystem">구동계</option>
-              <option value="part">부품</option>
-              <option value="supplies">용품/기타</option>
-              <option value="fashion">의류/패션아이템</option>
+              <option value="완차/프레임">완차/프레임</option>
+              <option value="휠셋">휠셋</option>
+              <option value="구동계">구동계</option>
+              <option value="부품">부품</option>
+              <option value="용품/기타">용품/기타</option>
+              <option value="의류/패션아이템">의류/패션아이템</option>
             </select>
             {errors.select && <p>{errors.select.message}</p>}
           </div>
