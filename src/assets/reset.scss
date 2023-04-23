@@ -65,7 +65,11 @@ a {
 input {
   margin: 0;
   padding: 0;
-  border-width: 1px;
-  outline: none;
   padding-left: 8px;
+  height: 28px;
+  outline: none;
+  &[type="text"] {
+    border: 1px solid #252525;
+    border-radius: 2px;
+  }
 }

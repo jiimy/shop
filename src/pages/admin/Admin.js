@@ -16,6 +16,7 @@ const AdminPage = () => {
     }
     axios
       .post(`${PRODUCT}`, {
+        // NOTE: id를 어떻게 기존 데이터에서 1씩 추가해야되지
         modelName: data["modelName"],
         brand: data["brand"],
         price: data["price"],
@@ -26,8 +27,8 @@ const AdminPage = () => {
       .then(function (response) {
         // console.log("dta", response.data);
         reset();
-        alert('등록되었습니다');
-        inputRef.current.value = "";;
+        alert("등록되었습니다");
+        inputRef.current.value = "";
       })
       .catch(function (error) {
         // 오류발생시 실행
@@ -39,16 +40,7 @@ const AdminPage = () => {
 
   const getImgUrl = (url) => {
     setGetImgurl(url);
-    console.log("rr", url);
   };
-  //  const onValid = () => {
-  //   console.log("성공");
-  //   console.log(data);
-  // };
-  // const onInvalid = () => {
-  //   console.log("실패");
-  //   console.log(errors);
-  // };
 
   const {
     register,
@@ -59,6 +51,11 @@ const AdminPage = () => {
   return (
     <div className="page admin-page">
       <h3 className="title">어드민페이지</h3>
+      <div className="tab">
+        <div className="tab-item">ㅁㅁ</div>
+        <div className="tab-item">ㅊㅊ</div>
+      </div>
+
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-wrap">
@@ -124,7 +121,7 @@ const AdminPage = () => {
             {errors.select && <p>{errors.select.message}</p>}
           </div>
 
-          <FileUpload getImgUrl={getImgUrl} ref={inputRef}/>
+          <FileUpload getImgUrl={getImgUrl} ref={inputRef} />
           <button type="submit" disabled={isSubmitting} className="submit-btn">
             저장
           </button>
