@@ -14,6 +14,7 @@ const Regist = () => {
   const [loginEmail, setLoginEmail] = useState(""); // 코드 추가
   const [loginPassword, setLoginPassword] = useState(""); // 코드 추가
   const [user, setUser] = useState({}); // 코드 추가
+  const [error, setError] = useState("");
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -30,6 +31,7 @@ const Regist = () => {
       console.log(user);
     } catch (error) {
       console.log(error.message);
+      setError(error.message);
     }
   };
 
@@ -57,7 +59,6 @@ const Regist = () => {
 
   return (
     <div style={{ textAlign: "center", margin: 10 }}>
-      
       <div>
         {/* 회원가입 */}
         <input
@@ -67,22 +68,22 @@ const Regist = () => {
           }}
         />
         <input
-          placeholder="EmailPassword"
+          type="password"
+          placeholder="password"
           onChange={(e) => {
             setRegisterPassword(e.target.value);
           }}
         />
-        <button onClick={register}>CreateUser</button>
+        <button onClick={register}>회원 가입</button>
       </div>
+      {/* 
       <div>
-        {/* 로그인 */}
         <h3>Login</h3>
         <input
         type="text"
           placeholder="Email"
           onChange={(e) => {
             setLoginEmail(e.target.value);
-            // console.log('e', e.target.value);
           }}
         />
         <input
@@ -92,13 +93,13 @@ const Regist = () => {
             setLoginPassword(e.target.value);
           }}
         />
-        {/*
-      */}
       <button onClick={login}>Login</button>
         <div>User Logged In:</div>
         <div>{user?.email}</div>
         <button onClick={logout}>로그아웃</button>
       </div>
+    */}
+      {error && error}
     </div>
   );
 };
